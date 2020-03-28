@@ -1,0 +1,8 @@
+.idea
+.iml
+
+karate-project/target/
+
+# Dependency directories
+node_modules/
+
