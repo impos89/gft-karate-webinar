@@ -1,7 +1,8 @@
 Feature: Examining functionality of Notes application to ensure they can be stored, updated retrieved and deleted
 
   Background:
-    * url 'http://localhost:3000'
+    * url host
+    * configure headers = { 'Authorization' : 'Basic c29tZTNkdWNrczppbnRoZXpvbw==' }
 
   Scenario: Successful Nota create
     * def payload =

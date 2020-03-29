@@ -15,6 +15,7 @@ public class TestRunners {
 
     @Test
     void run_tests_on_svia_and_generate_report() {
+//        System.setProperty("karate.env", "prod");
         Results results = Runner.path("classpath:com/impos/tests")
                 .tags("~@ignore")
                 .parallel(5);
@@ -33,6 +34,4 @@ public class TestRunners {
         ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
         reportBuilder.generateReports();
     }
-
-
 }
