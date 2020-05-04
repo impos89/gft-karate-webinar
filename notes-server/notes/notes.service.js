@@ -32,11 +32,11 @@ async function getNotes() {
     return notes;
 }
 
-async function updateNote(noteToUpdate) {
-    const note = notes[noteToUpdate.id];
+async function updateNote(input) {
+    const note = notes[input.noteId];
     if (note) {
-        note.name = noteToUpdate.name;
-        note.description = noteToUpdate.description;
+        note.name = input.noteData.name;
+        note.description = input.noteData.description;
     }
     return note;
 }

@@ -23,6 +23,7 @@
         <java.version>1.8</java.version>
         <junit5.version>5.5.0</junit5.version>
         <cucumber-reporting.version>5.1.1</cucumber-reporting.version>
+        <gatling-maven-plugin.version>3.0.5</gatling-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -61,6 +62,12 @@
             <artifactId>cucumber-reporting</artifactId>
             <version>${cucumber-reporting.version}</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.intuit.karate</groupId>-->
+<!--            <artifactId>karate-gatling</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -96,6 +103,25 @@
                     <compilerArgument>-Werror</compilerArgument>
                 </configuration>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>io.gatling</groupId>-->
+<!--                <artifactId>gatling-maven-plugin</artifactId>-->
+<!--                <version>${gatling-maven-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <simulationsFolder>src/test/java</simulationsFolder>-->
+<!--                    <includes>-->
+<!--                        <include>mock.CatsKarateSimulation</include>-->
+<!--                    </includes>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>test</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>test</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

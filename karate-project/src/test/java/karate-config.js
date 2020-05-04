@@ -3,7 +3,6 @@ function fn() {
         host : 'http://localhost:3000'
     };
 
-
     if (karate.env) {
         karate.log("Environment set: env = ", karate.env);
 

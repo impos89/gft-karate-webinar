@@ -16,7 +16,7 @@ public class TestRunners {
     @Test
     void run_tests_on_svia_and_generate_report() {
 //        System.setProperty("karate.env", "prod");
-        Results results = Runner.path("classpath:com/impos/tests")
+        Results results = Runner.path("classpath:com/impos/karate")
                 .tags("~@ignore")
                 .parallel(5);
 

@@ -39,7 +39,7 @@ function getNotes(req, res, next) {
 }
 
 function updateNote(req, res, next) {
-    notesService.updateNote(req.body)
+    notesService.updateNote({noteId : req.params.noteId, noteData: req.body})
         .then(note => res.status(200).json(note, defaultLinks(note.id)))
         .catch(err => next(err));
 
