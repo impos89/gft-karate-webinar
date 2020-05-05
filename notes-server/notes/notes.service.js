@@ -3,7 +3,8 @@ module.exports = {
     getNote,
     getNotes,
     updateNote,
-    deleteNote
+    deleteNote,
+    uploadFile
 };
 
 class Note {
@@ -43,4 +44,26 @@ async function updateNote(input) {
 
 async function deleteNote(noteId) {
     return notes.splice(noteId, 1);
+}
+
+async function uploadFile(req, res) {
+    try {
+        if(req.body.length <= 0) {
+            res.send({
+                status: false,
+                message: 'No file uploaded'
+            });
+        } else {
+            res.send({
+                status: true,
+                message: 'File is uploaded',
+                data: {
+                    mimetype: req.headers['content-type'],
+                    size: req.body.length
+                }
+            });
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
 }

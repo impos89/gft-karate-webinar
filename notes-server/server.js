@@ -6,7 +6,17 @@ const bodyParser = require('body-parser');
 const basicAuth = require('_config/basic-auth');
 const errorHandler = require('_config/error-handler');
 const hateoasLinker = require('express-hateoas-links');
+
+
+
 app.use(hateoasLinker);
+
+app.use(bodyParser.raw({
+    inflate: true,
+    limit: '100kb',
+    type: 'application/octet-stream'
+}));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());

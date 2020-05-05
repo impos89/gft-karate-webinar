@@ -9,6 +9,7 @@ router.get('/:noteId', getNote);
 router.get('/', getNotes);
 router.put('/:noteId', updateNote);
 router.delete('/:noteId', deleteNote);
+router.post('/attachment', uploadFile)
 
 module.exports = router;
 
@@ -50,6 +51,12 @@ function deleteNote(req, res, next) {
         .then(note => res.status(200).json(note))
         .catch(err => next(err));
 
+}
+
+function uploadFile(req, res, next) {
+    notesService.uploadFile(req, res)
+        .then(note => res.status(200).json(note))
+        .catch(err => next(err))
 }
 
 /*

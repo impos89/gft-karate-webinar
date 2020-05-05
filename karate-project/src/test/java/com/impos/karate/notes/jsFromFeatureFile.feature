@@ -13,10 +13,10 @@ Feature: Expected to be able to run js in scenarios
   """
 
     Given path '/notes'
-    And request { name: "Terry Pratchett, Reaper Man", description : "Five exclamation marks, the sure sign of an insane mind." }
+    And request { name: "Shiken Haramitsu Daikoumyo", description : 'To seek a bright future of enlightenment by loving, being true and natural and persevering with dedication' }
     When method POST
     Then status 200
-    And match response.description == "Five exclamation marks, the sure sign of an insane mind."
+    And match response.description == 'To seek a bright future of enlightenment by loving, being true and natural and persevering with dedication'
     * def noteId = response.id
     * def description = response.description
 
@@ -24,7 +24,7 @@ Feature: Expected to be able to run js in scenarios
     And request { name: "Terry Pratchett, Reaper Man", description : #(textUppercase(description)) }
     When method PUT
     Then status 200
-    And match response.description == "FIVE EXCLAMATION MARKS, THE SURE SIGN OF AN INSANE MIND."
+    And match response.description == 'TO SEEK A BRIGHT FUTURE OF ENLIGHTENMENT BY LOVING, BEING TRUE AND NATURAL AND PERSEVERING WITH DEDICATION'
 
 
 

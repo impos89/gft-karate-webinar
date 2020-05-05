@@ -4,7 +4,7 @@ Feature: Examining functionality of Notes application to ensure they can be stor
     * url host
     * configure headers = { 'Authorization' : 'Basic c29tZTNkdWNrczppbnRoZXpvbw==' }
 
-  Scenario: Successful Nota create
+  Scenario: Create Note
     * def payload =
     """
     {
