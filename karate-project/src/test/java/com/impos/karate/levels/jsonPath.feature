@@ -103,14 +103,12 @@ Feature: JsonPath
   """
 
   Scenario: Using JsonPath
-
     * def beltColors = get levels[*].beltColor
     * match beltColors contains ["white", "yellow", "orange", "green", "blue", "brown", "black"]
     * match beltColors !contains ["pink"]
 
     * def firstColor = get levels[0].beltColor
     * print "First color is", firstColor
-
 
   Scenario: Using JsonPath
     * def colors = get levels[0:4].beltColor
@@ -123,3 +121,17 @@ Feature: JsonPath
   Scenario: Using JsonPath to filter only items with level = 1
     * def colors = get levels[?(@.level == 1)]
     * print "Levels: ", colors
+
+  Scenario: Using JsonPath to get nested element
+  Given def nested =
+  """
+  {
+    items : [
+      { value : "ich" },
+      { value : "ni" },
+    ], 
+    value : "san"
+  }
+  """
+  Then match nested..value contains only ["ich", "ni", "san"]
+  

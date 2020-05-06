@@ -11,20 +11,17 @@ Feature: Expected to be able to run js in scenarios
         return text.toUpperCase();
     }
   """
-
     Given path '/notes'
-    And request { name: "Shiken Haramitsu Daikoumyo", description : 'To seek a bright future of enlightenment by loving, being true and natural and persevering with dedication' }
+    And request { name: "Oss", description : 'Push On Through Difficulties' }
     When method POST
     Then status 200
-    And match response.description == 'To seek a bright future of enlightenment by loving, being true and natural and persevering with dedication'
-    * def noteId = response.id
-    * def description = response.description
+    And match response.description == 'Push On Through Difficulties'
 
-    Given path '/notes', noteId
-    And request { name: "Terry Pratchett, Reaper Man", description : #(textUppercase(description)) }
+    Given path '/notes', response.id
+    And request { name: #(textUppercase(response.name)), description : #(response.description) }
     When method PUT
     Then status 200
-    And match response.description == 'TO SEEK A BRIGHT FUTURE OF ENLIGHTENMENT BY LOVING, BEING TRUE AND NATURAL AND PERSEVERING WITH DEDICATION'
+    And match response.name == 'OSS'
 
 
 

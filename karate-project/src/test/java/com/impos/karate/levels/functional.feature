@@ -2,24 +2,18 @@ Feature: Functional operations
 
   Scenario: Using map()
     * def fun = function(x){ return x.level + " " + x.rank + ", " + x.beltColor + " belt" }
-    * def file = read('levels.json')
-
-    * def levels =  get file
+    * def levels = read('levels.json')
     * def fullInfo = karate.map(levels, fun)
     * print "Mapped value","[", fullInfo[2],"]"
 
   Scenario: Using filter()
     * def highLevelsOnly = function(x){ return x.level > 8 }
-    * def file = read('levels.json')
-    * def levels =  get file
-
+    * def levels = read('levels.json')
     * print "Filtered values", karate.filter(levels, highLevelsOnly)
 
   Scenario: Using foreach()
     * def printHighLevelsOnly = function(rank){ if(rank.level > 8) print( rank ) }
-    * def file = read('levels.json')
-
-    * def levels =  get file
+    * def levels = read('levels.json')
 
     * karate.forEach(levels, printHighLevelsOnly)
 

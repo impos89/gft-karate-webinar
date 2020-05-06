@@ -3,7 +3,7 @@ Feature: Json from file
   Scenario: Using JsonPath
 
     * def levels =
-"""
+  """
   [
     {
       rank : "kyu",

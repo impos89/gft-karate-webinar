@@ -8,9 +8,9 @@ Feature: Examining functionality of Notes application to ensure they can be stor
     * def payload =
     """
     {
-      name : "6 Kyu",
-      description : "Green belt represents that a very basic steps of karate learning have been accomplished successfully.",
-      label : "green"
+      name : '6 Kyu',
+      description : 'Green belt represents that a very basic steps of karate learning have been accomplished successfully.',
+      label : 'green'
     }
     """
     Given path '/notes'
@@ -25,7 +25,7 @@ Feature: Examining functionality of Notes application to ensure they can be stor
     And match response contains
     """
     {
-      id : #(noteId),
+        id : #(noteId),
         name : "6 Kyu",
         description : "Green belt represents that a very basic steps of karate learning have been accomplished successfully.",
         label : "green",

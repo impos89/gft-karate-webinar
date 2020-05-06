@@ -1,14 +1,13 @@
 Feature: All notes endpoints are authenticated
-
   Background:
     * url host
     * configure headers = { 'Authorization' : 'Basic c29tZTNkdWNrczppbnRoZXpvbw==' }
 
   Scenario Outline: Successful create multiple notes
-    * def payload =  { name: <name>, description: <description> }
+    * def body = { name: <name>, description: <description> }
 
     Given path '/notes'
-    And request payload
+    And request body
     When method POST
     Then status 200
     And match response contains { id: '#notnull' }
@@ -20,3 +19,4 @@ Feature: All notes endpoints are authenticated
       | Watashi    | I (Me)                                                            |
       | Seiza Waza | Kneeling Techniques                                               |
       | Dojo       | School                                                            |
+    
